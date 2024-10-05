@@ -1,0 +1,109 @@
+Alrighty.
+
+Let's go.
+
+And now create a new file and we'll call it nodes.
+
+And as usual, let's load the environment variables.
+
+We want also to import the tool executor, which is going to help us execute tools.
+
+And we want to import from the react file the react agent runnable, which is the reasoning engine.
+
+And we also want to import the tools that our agent is going to be using.
+
+And the tools are the table search tool and the triple function.
+
+Let's now import the agent state.
+
+And every node is going to receive this agent state as an input.
+
+Alrighty.
+
+Let's go and implement now the nodes and we'll start with the agent reason node.
+
+And in the first iteration of this node where we just have the user's input, then the agent outcome
+
+attribute is going to be none.
+
+And the intermediate steps attribute is going to be an empty list.
+
+And what do we want to run in this node to take the input, to give it to the lamb with the react prompt
+
+to get the result from the elm, which should be parsed into an agent finish or an agent action object,
+
+and then update the state.
+
+Alrighty, so let's go and create the Run Agent reasoning engine, which receives a state, and the
+
+implementation is a one liner which calls the react agent runnable with the invoke method with that
+
+state.
+
+And I remind you that the state has the attribute of input, which is the user's query.
+
+So everything compiles here and works correctly, because the state here that we are passing is simply
+
+a dictionary.
+
+After we have the result, we want to propagate it back to the graph with the agent outcome field.
+
+And notice that this return value will overwrite the original agent outcome, and that will be with
+
+the new value we just figured out.
+
+And when we'll debug it, it will all be clear I promise.
+
+So in the react algorithm that was the re from reasoning, that was the reasoning node.
+
+And now we want to implement the acting.
+
+So we're going to implement the act node.
+
+And we first need to initialize a tool executor object from the tools we already created.
+
+So it's going to be the tabular research tool.
+
+And it's going to be the triple tool.
+
+And with that we have now a tool executor which is able to run our functions.
+
+And the Act node is going to run a function which is called execute tools, which of course is going
+
+to receive a state.
+
+And here we have a hidden assumption that the state is always going to have the agent outcome field.
+
+And this is because the Act node always comes after the agent reason node.
+
+Alrighty, so let's implement it.
+
+So we'll simply take the agent action from that state.
+
+And this is simply a dictionary.
+
+And we'll simply want to use the tool executor to invoke from the agent action.
+
+And the tool executor invoke function can receive as an input the agent action, which has all the information
+
+on which function to run and with which arguments to send it.
+
+And after we got the result, we want to return a dictionary with the key of intermediate steps, because
+
+that's what we're going to update now.
+
+And we're going to update with the tuple of agent action, the object of all the information of the
+
+function that ran and the output converted into a string.
+
+And Landgraff is going to take this result, and it's going to check the current state in the intermediate
+
+steps attribute.
+
+And it's going to append to that list there the new tuple we just added.
+
+And that's it for this file we've implemented all the nodes for our graph.
+
+And in the next video we're going to be stitching everything together and connecting the moving parts
+
+and build our graph.
