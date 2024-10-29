@@ -4,14 +4,24 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+beautifulsoup4 = "*"
+chromadb = "*"
 python-dotenv = "*"
 black = "*"
 isort = "*"
-langchain = "*"
-langchain-openai = "*"
-langgraph = "*"
-langchain-community = "*"
+pytest = "*"
+tiktoken = "*"
+faiss-cpu = "*"
 langchainhub = "*"
+langgraph-checkpoint-sqlite = "*"
+langchain-chroma = "*"
+langchain = "*"
+langgraph = "*"
+langgraph-cli = "*"
+tavily-python = "*"
+langchain-community = "*"
+pypdf = "*"
+langchain-openai = "*"
 
 [dev-packages]
 
