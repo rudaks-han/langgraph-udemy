@@ -20,15 +20,19 @@ text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
 )
 doc_splits = text_splitter.split_documents(docs_list)
 
+chroma_directory = (
+    "/Users/macbookpro/_WORK/_GIT/langgraph-udemy/05_langgraph_course/chroma"
+)
 # vectorstore = Chroma.from_documents(
 #     documents=doc_splits,
 #     collection_name="rag-chroma",
 #     embedding=OpenAIEmbeddings(),
-#     persist_directory="./chroma",
+#     # persist_directory="./chroma",
+#     persist_directory=chroma_directory,
 # )
 
 retriever = Chroma(
     collection_name="rag-chroma",
     embedding_function=OpenAIEmbeddings(),
-    persist_directory="./chroma",
+    persist_directory=chroma_directory,
 ).as_retriever()
