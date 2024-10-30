@@ -1,9 +1,9 @@
-from typing import TypedDict, List
+from typing import List, TypedDict
 
 
 class GraphState(TypedDict):
     """
-    Represents the state of out Graph.
+    Represents the state of our graph.
 
     Attributes:
         question: question

@@ -35,10 +35,10 @@ flow.add_conditional_edges(
 flow.add_edge(ACT, AGENT_REASON)
 
 app = flow.compile()
-app.get_graph().draw_mermaid_png(
-    output_file_path="./graph.png",
-    draw_method=MermaidDrawMethod.PYPPETEER,
-)
+# app.get_graph().draw_mermaid_png(
+#     output_file_path="./graph.png",
+#     draw_method=MermaidDrawMethod.PYPPETEER,
+# )
 
 if __name__ == "__main__":
     print("Hello, world!")
