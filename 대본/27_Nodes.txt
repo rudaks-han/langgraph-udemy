@@ -46,7 +46,7 @@ So everything compiles here and works correctly, because the state here that we 
 
 a dictionary.
 
-After we have the result, we want to propagate it back to the graph with the agent outcome field.
+After we have the result, we want to propagate it back to the graphs with the agent outcome field.
 
 And notice that this return value will overwrite the original agent outcome, and that will be with
 
@@ -102,8 +102,8 @@ steps attribute.
 
 And it's going to append to that list there the new tuple we just added.
 
-And that's it for this file we've implemented all the nodes for our graph.
+And that's it for this file we've implemented all the nodes for our graphs.
 
 And in the next video we're going to be stitching everything together and connecting the moving parts
 
-and build our graph.
+and build our graphs.

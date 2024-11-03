@@ -2,9 +2,10 @@ from dotenv import load_dotenv
 
 from langgraph.graph import END, StateGraph
 
-from graph.consts import RETRIEVE, GRADE_DOCUMENTS, GENERATE, WEBSEARCH
-from graph.nodes import generate, grade_documents, retrieve, web_search
-from graph.state import GraphState
+from graphs.consts import RETRIEVE, GRADE_DOCUMENTS, GENERATE, WEBSEARCH
+
+from graphs.nodes import generate, grade_documents, retrieve, web_search
+from graphs.state import GraphState
 
 load_dotenv()
 
