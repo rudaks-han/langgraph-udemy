@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-from langchain_core.runnables.graph import MermaidDrawMethod
 
 load_dotenv()
 
@@ -43,6 +42,7 @@ app = flow.compile()
 if __name__ == "__main__":
     print("Hello, world!")
     res = app.invoke(
-        input={"input": "What is the weather in sf? Write it and the Triple it "}
+        # input={"input": "What is the weather in sf? Write it and the Triple it "}
+        input={"input": "현재 서울 기온은 몇도야? 그리고 거기에 곱하기 3을 해줘"}
     )
     print(res)
