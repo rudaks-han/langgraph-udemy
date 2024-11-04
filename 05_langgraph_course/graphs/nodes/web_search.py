@@ -1,14 +1,11 @@
-from typing import Dict, Any
+from typing import Any, Dict
 
-from dotenv import load_dotenv
-from langchain_community.tools import TavilySearchResults
-from langchain_core.documents import Document
+from langchain.schema import Document
+from langchain_community.tools.tavily_search import TavilySearchResults
 
 from graphs.state import GraphState
 
-load_dotenv()
-
-web_search_tool = TavilySearchResults(max_results=3)
+web_search_tool = TavilySearchResults(k=3)
 
 
 def web_search(state: GraphState) -> Dict[str, Any]:
@@ -16,18 +13,11 @@ def web_search(state: GraphState) -> Dict[str, Any]:
     question = state["question"]
     documents = state["documents"]
 
-    tavily_results = web_search_tool.invoke({"query": question})
-    joined_tavily_result = "\n".join(
-        [tavily_result["content"] for tavily_result in tavily_results]
-    )
-    web_results = Document(page_content=joined_tavily_result)
+    docs = web_search_tool.invoke({"query": question})
+    web_results = "\n".join([d["content"] for d in docs])
+    web_results = Document(page_content=web_results)
     if documents is not None:
         documents.append(web_results)
     else:
         documents = [web_results]
-
     return {"documents": documents, "question": question}
-
-
-if __name__ == "__main__":
-    web_search(state={"question": "agent memory", "documents": None})

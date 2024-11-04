@@ -2,14 +2,14 @@ from dotenv import load_dotenv
 
 from langgraph.graph import END, StateGraph
 
-load_dotenv()
-
 from graphs.chains.answer_grader import answer_grader
 from graphs.chains.hallucination_grader import hallucination_grader
 from graphs.chains.router import question_router, RouteQuery
 from graphs.consts import RETRIEVE, GRADE_DOCUMENTS, GENERATE, WEBSEARCH
 from graphs.nodes import generate, grade_documents, retrieve, web_search
 from graphs.state import GraphState
+
+load_dotenv()
 
 
 def decide_to_generate(state):
@@ -76,8 +76,6 @@ workflow.set_conditional_entry_point(
         RETRIEVE: RETRIEVE,
     },
 )
-
-workflow.set_entry_point(RETRIEVE)
 workflow.add_edge(RETRIEVE, GRADE_DOCUMENTS)
 workflow.add_conditional_edges(
     GRADE_DOCUMENTS,
