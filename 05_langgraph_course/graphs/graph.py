@@ -2,14 +2,14 @@ from dotenv import load_dotenv
 
 from langgraph.graph import END, StateGraph
 
-from graph.chains.answer_grader import answer_grader
-from graph.chains.hallucination_grader import hallucination_grader
-from graph.chains.router import question_router, RouteQuery
-from graph.consts import RETRIEVE, GRADE_DOCUMENTS, GENERATE, WEBSEARCH
-from graph.nodes import generate, grade_documents, retrieve, web_search
-from graph.state import GraphState
-
 load_dotenv()
+
+from graphs.chains.answer_grader import answer_grader
+from graphs.chains.hallucination_grader import hallucination_grader
+from graphs.chains.router import question_router, RouteQuery
+from graphs.consts import RETRIEVE, GRADE_DOCUMENTS, GENERATE, WEBSEARCH
+from graphs.nodes import generate, grade_documents, retrieve, web_search
+from graphs.state import GraphState
 
 
 def decide_to_generate(state):

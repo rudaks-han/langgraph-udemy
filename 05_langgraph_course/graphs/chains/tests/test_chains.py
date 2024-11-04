@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-from graph.chains.generation import generation_chain
-from graph.chains.hallucination_grader import GradeHallucinations, hallucination_grader
-from graph.chains.router import question_router, RouteQuery
+from graphs.chains.generation import generation_chain
+from graphs.chains.hallucination_grader import GradeHallucinations, hallucination_grader
+from graphs.chains.router import question_router, RouteQuery
 
-from graph.chains.retrieval_grader import GradeDocuments, retrieval_grader
+from graphs.chains.retrieval_grader import GradeDocuments, retrieval_grader
 from ingestion import retriever
 
 

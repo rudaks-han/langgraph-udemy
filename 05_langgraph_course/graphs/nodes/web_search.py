@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from langchain_community.tools import TavilySearchResults
 from langchain_core.documents import Document
 
-from graph.state import GraphState
+from graphs.state import GraphState
 
 load_dotenv()
 
