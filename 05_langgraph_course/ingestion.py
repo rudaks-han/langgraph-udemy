@@ -22,7 +22,8 @@ doc_splits = text_splitter.split_documents(docs_list)
 
 chroma_directory = (
     # "/Users/macbookpro/_WORK/_GIT/langgraph-udemy/05_langgraph_course/chroma"
-    "/Users/rudaks/_WORK/_GIT/langgraph-udemy/05_langgraph_course/chroma"
+    # "/Users/rudaks/_WORK/_GIT/langgraph-udemy/05_langgraph_course/chroma"
+    "./chroma"
 )
 # vectorstore = Chroma.from_documents(
 #     documents=doc_splits,

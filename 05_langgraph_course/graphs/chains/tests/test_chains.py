@@ -2,12 +2,12 @@ from pprint import pprint
 
 from dotenv import load_dotenv
 
-from graph.chains.generation import generation_chain
-from graph.chains.hallucination_grader import GradeHallucinations, hallucination_grader
+from graphs.chains.generation import generation_chain
+from graphs.chains.hallucination_grader import GradeHallucinations, hallucination_grader
 
 load_dotenv()
 
-from graph.chains.retrieval_grader import GradeDocuments, retrieval_grader
+from graphs.chains.retrieval_grader import GradeDocuments, retrieval_grader
 from ingestion import retriever
 
 

@@ -1,6 +1,6 @@
 from typing import Any, Dict
 
-from graph.state import GraphState
+from graphs.state import GraphState
 from ingestion import retriever
 
 
