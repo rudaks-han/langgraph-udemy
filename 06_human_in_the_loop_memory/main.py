@@ -1,7 +1,10 @@
 import sqlite3
 from typing import TypedDict
 
-from langgraph.checkpoint.memory import MemorySaver
+from dotenv import load_dotenv
+
+# load_dotenv()
+
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.constants import START, END
 from langgraph.graph import StateGraph
