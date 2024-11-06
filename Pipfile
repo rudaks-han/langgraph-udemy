@@ -22,6 +22,7 @@ tavily-python = "*"
 langchain-community = "*"
 pypdf = "*"
 langchain-openai = "*"
+pyppeteer = "*"
 
 [dev-packages]
 

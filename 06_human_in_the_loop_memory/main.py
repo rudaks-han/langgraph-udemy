@@ -1,8 +1,10 @@
 from typing import TypedDict
 
+from langchain_core.runnables.graph import MermaidDrawMethod
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.constants import START, END
 from langgraph.graph import StateGraph
+from time import sleep
 
 
 class State(TypedDict):
@@ -34,7 +36,9 @@ builder.add_edge("step_3", END)
 memory = MemorySaver()
 
 graph = builder.compile(checkpointer=memory, interrupt_before=["human_feedback"])
-graph.get_graph().draw_mermaid_png(output_file_path="graph.png")
+# graph.get_graph().draw_mermaid_png(
+#     draw_method=MermaidDrawMethod.PYPPETEER, output_file_path="graph.png"
+# )
 
 if __name__ == "__main__":
     thread = {"configurable": {"thread_id": "1"}}
