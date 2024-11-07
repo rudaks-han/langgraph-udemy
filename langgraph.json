@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "my_graph_id": "./05_langgraph/graph.py:app"
+  },
+  "env": "./.env"
+}
